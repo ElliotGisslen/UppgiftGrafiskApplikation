@@ -13,16 +13,16 @@ namespace DataAccess.Contexts
 
         public SmartAppDbContext()
         {
+        }
+
+        public SmartAppDbContext(DbContextOptions<SmartAppDbContext> options) : base(options)
+        {
             Database.EnsureCreated();
             try
             {
                 Database.Migrate();
             }
             catch { }
-        }
-
-        public SmartAppDbContext(DbContextOptions<SmartAppDbContext> options) : base(options)
-        {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

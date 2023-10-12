@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartApp.MainPage">
+             xmlns:viewmodels="clr-namespace:SmartApp.MVVM.ViewModels"
+             x:DataType="viewmodels:MainViewModel"
+             x:Class="SmartApp.MainPage"
+             Shell.NavBarIsVisible="False">
 
-    <Grid BackgroundColor="#1b1c21" RowDefinitions=".75*, .25*">
+    <Grid BackgroundColor="#1b1c21" RowDefinitions=".75*, .25*" Padding="40">
+        <Image Grid.Row="0" Source="house.png"></Image>
+        <Button Grid.Row="1" Command="{Binding GoToGetStartedCommand}" Text="Get Started" VerticalOptions="Center"></Button>
         
 
     </Grid>

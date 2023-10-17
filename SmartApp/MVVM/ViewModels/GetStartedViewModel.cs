@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace SmartApp.MVVM.ViewModels
 {
-    public class GetStartedViewModel : ObservableObject
+    public partial class GetStartedViewModel : ObservableObject
     {
+
     }
 }

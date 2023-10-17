@@ -1,8 +1,10 @@
-﻿using CommunityToolkit.Maui;
+﻿using Camera.MAUI;
+using CommunityToolkit.Maui;
 using DataAccess.Contexts;
-using DataAccess.NewFolder;
+using DataAccess.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using ServiceApplication.Services;
 using SmartApp.MVVM.ViewModels;
 using SmartApp.MVVM.Views;
 using SmartApp.Resources.Helpers;
@@ -17,6 +19,7 @@ namespace SmartApp
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .UseMauiCameraView()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -27,7 +30,8 @@ namespace SmartApp
             builder.Services.AddDbContext<SmartAppDbContext>(x => x.UseSqlite($"Data Source={DatabasePathFinder.GetPath()}", x => x.MigrationsAssembly(nameof(DataAccess))));
             builder.Services.AddSingleton<IotHubManager>();
 
-            builder.Services.AddSingleton<IotHubManager>();
+            builder.Services.AddSingleton<DateTimeService>();
+
 
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();

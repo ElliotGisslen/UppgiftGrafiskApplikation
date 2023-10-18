@@ -15,12 +15,24 @@
 
 
     <Grid RowDefinitions="auto, auto, *">
-        
+
         <VerticalStackLayout Grid.Row="0" Margin="20" >
             <Label Text="{Binding CurrentTime}" TextColor="#ffffff" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center"></Label>
             <Label Text="{Binding CurrentDate}" TextColor="#cccccc" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center"></Label>
         </VerticalStackLayout>
-        
+        <HorizontalStackLayout HorizontalOptions="Start" Margin="17">
+            <Label Text="{Binding CurrentWeatherCondition, FallbackValue=&#xe137;}" TextColor="{StaticResource White}" FontFamily="FontAwesomeRegular" FontSize="26" Margin="0, 0, 10 ,10"/>
+            <StackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="{Binding CurrentOutsideTemperature, FallbackValue=--}" TextColor="{StaticResource White}" VerticalOptions="Center" FontSize="26" />
+                    <Label Text="{Binding CurrentOutsideTemperatureUnit, FallbackValue=°C}" TextColor="{StaticResource White}" VerticalOptions="Center" FontSize="26" />
+                </HorizontalStackLayout>
+            </StackLayout>
+
+        </HorizontalStackLayout>
+
+
+
         <Label Grid.Row="1" Text="{Binding Result}" Padding="15" TextColor="{StaticResource White}" FontSize="32"></Label>
         
         <CollectionView Grid.Row="2" ItemsSource="{Binding DevicesList}" Margin="20">
@@ -43,7 +55,8 @@
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>
-                            <Label Grid.Row="1" VerticalOptions="Center" Grid.Column="0" FontFamily="FontAwesomeRegular" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource White}">
+                            
+                            <Label Grid.Row="1" VerticalOptions="Center" Grid.Column="0" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource White}">
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding IsActive}" Value="True">
                                         <Setter Property="TextColor" Value="{StaticResource Black}" />

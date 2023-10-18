@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace ServiceApplication.Services
+namespace SmartApp.Services
 {
     public class DateTimeService
     {

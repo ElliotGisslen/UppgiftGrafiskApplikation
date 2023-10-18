@@ -13,17 +13,34 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ServiceApplication.Services;
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
+using SmartApp.Services;
+using SmartApp.MVVM.Models;
 
 namespace SmartApp.MVVM.ViewModels
 {
     public partial class OverviewViewModel : ObservableObject
     {
 
+        private readonly WeatherService _weatherService;
         private readonly IotHubManager _iotHubManager;
         private readonly DateTimeService _dateTimeService;
+
+        public OverviewViewModel(IotHubManager iotHubManager, DateTimeService dateTimeService, WeatherService weatherService)
+        {
+            _iotHubManager = iotHubManager;
+            _dateTimeService = dateTimeService;
+            _weatherService = weatherService;
+            _iotHubManager.InitializeAsync().ConfigureAwait(true);
+            UpdateDeviceList();
+            UpdateWeather();
+            _iotHubManager.DeviceItemListUpdated += UpdateDeviceList;
+            Task.Run(() => GetDateTime());
+
+        }
+
+
 
         [ObservableProperty]
         ObservableCollection<DeviceItemViewModel> devicesList;
@@ -37,17 +54,19 @@ namespace SmartApp.MVVM.ViewModels
         [ObservableProperty]
         string currentDate;
 
+        [ObservableProperty]
+        private string? _currentWeatherCondition = "\ue137";
 
-        public OverviewViewModel(IotHubManager iotHubManager, DateTimeService dateTimeService)
-        {
-            _iotHubManager = iotHubManager;
-            _dateTimeService = dateTimeService;
-            _iotHubManager.InitializeAsync().ConfigureAwait(true);
-            UpdateDeviceList();
-            _iotHubManager.DeviceItemListUpdated += UpdateDeviceList;
-            Task.Run(() => GetDateTime());
+        [ObservableProperty]
+        private string? _currentOutsideTemperature = "--";
 
-        }
+        [ObservableProperty]
+        private string? _currentOutsideTemperatureUnit = "°C";
+
+
+
+
+
 
 
         private void GetDateTime()
@@ -58,6 +77,16 @@ namespace SmartApp.MVVM.ViewModels
 
                 CurrentDate = _dateTimeService.CurrentDate;
             }
+        }
+
+        private void UpdateWeather()
+        {
+
+            _weatherService.WeatherUpdated += () =>
+            {
+                CurrentWeatherCondition = _weatherService.CurrentWeatherCondition;
+                CurrentOutsideTemperature = _weatherService.CurrentOutsideTemperature;
+            };
         }
 
 
@@ -122,6 +151,7 @@ namespace SmartApp.MVVM.ViewModels
             // Update the IsActive state
             deviceViewModel.IsActive = false;
         }
+
 
     }
 

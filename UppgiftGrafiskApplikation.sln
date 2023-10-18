@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartApp", "SmartApp\SmartA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{61E107AE-DE06-46C0-9D5D-E1F6F8E20671}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDevice", "..\UppgiftSmartEnhet\ConsoleDevice\ConsoleDevice.csproj", "{F97172B3-C5AA-4AAD-80A8-6EF482AFB382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDevice", "..\..\UppgiftSmartEnhet\ConsoleDevice\ConsoleDevice.csproj", "{36FBF430-9932-450A-BF00-613A1DB17591}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,10 @@ Global
 		{61E107AE-DE06-46C0-9D5D-E1F6F8E20671}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61E107AE-DE06-46C0-9D5D-E1F6F8E20671}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61E107AE-DE06-46C0-9D5D-E1F6F8E20671}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F97172B3-C5AA-4AAD-80A8-6EF482AFB382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F97172B3-C5AA-4AAD-80A8-6EF482AFB382}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F97172B3-C5AA-4AAD-80A8-6EF482AFB382}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F97172B3-C5AA-4AAD-80A8-6EF482AFB382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36FBF430-9932-450A-BF00-613A1DB17591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36FBF430-9932-450A-BF00-613A1DB17591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36FBF430-9932-450A-BF00-613A1DB17591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36FBF430-9932-450A-BF00-613A1DB17591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -92,13 +92,13 @@ namespace SmartApp.MVVM.ViewModels
             {
                 if (deviceViewModel.IsActive)
                 {
-                    // Call the StartDevice method
-                    await StartDevice(deviceViewModel);
+                    // Call the StopDevice method
+                    await StopDevice(deviceViewModel);
                 }
                 else
                 {
                     // Call the StopDevice method
-                    await StopDevice(deviceViewModel);
+                    await StartDevice(deviceViewModel);
                 }
             }
         }
@@ -111,6 +111,7 @@ namespace SmartApp.MVVM.ViewModels
 
             // Update the IsActive state
             deviceViewModel.IsActive = true;
+            
         }
 
         async Task StopDevice(DeviceItemViewModel deviceViewModel)

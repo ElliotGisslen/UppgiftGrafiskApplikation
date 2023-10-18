@@ -9,7 +9,7 @@ namespace DataAccess.Models
     public class DeviceItem
     {
         public string DeviceId { get; set; } = null!;
-        public string? DeviceType { get; set; }
+        public string DeviceType { get; set; } = null!;
         public string? Manufacturer { get; set; }
         public string? Location { get; set; }
         public bool IsActive { get; set; }

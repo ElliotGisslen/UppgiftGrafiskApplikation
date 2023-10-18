@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 using SmartApp.Services;
-using SmartApp.MVVM.Models;
 
 namespace SmartApp.MVVM.ViewModels
 {

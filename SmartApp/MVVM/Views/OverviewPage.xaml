@@ -25,7 +25,7 @@
             <StackLayout>
                 <HorizontalStackLayout>
                     <Label Text="{Binding CurrentOutsideTemperature, FallbackValue=--}" TextColor="{StaticResource White}" VerticalOptions="Center" FontSize="26" />
-                    <Label Text="{Binding CurrentOutsideTemperatureUnit, FallbackValue=°C}" TextColor="{StaticResource White}" VerticalOptions="Center" FontSize="26" />
+                    <Label Text="{Binding CurrentOutsideTemperatureUnit, FallbackValue=°C}" TextColor="{StaticResource White}" VerticalOptions="Center" FontSize="16" />
                 </HorizontalStackLayout>
             </StackLayout>
 
